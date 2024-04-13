@@ -15,7 +15,7 @@ const Watch = () => {
     let hour = date.getHours();
     let minutes = date.getMinutes();
     let time = `${hour > 9 ? hour : "0" + hour}:${
-      minutes > 10 ? minutes : "0" + minutes
+      minutes > 9 ? minutes : "0" + minutes
     }`;
     setWatch(time);
   };
