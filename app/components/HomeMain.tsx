@@ -2,6 +2,8 @@
 
 import styled from "styled-components";
 import Categories from "./Categories";
+import Filter from "@/context/filter";
+import { useState } from "react";
 
 const Container = styled.main`
   width: 100%;
@@ -18,11 +20,19 @@ const CopyRight = styled.h1`
   color: ${(p) => p.theme.colors.black};
 `;
 const HomeMain = () => {
+  const [filter, setFilter] = useState("all");
   return (
-    <Container>
-      <Categories />
-      <CopyRight>Ushbu malumot markaziy bankning saytida olindi</CopyRight>
-    </Container>
+    <Filter.Provider
+      value={{
+        filter,
+        setFilter,
+      }}
+    >
+      <Container>
+        <Categories />
+        <CopyRight>Ushbu malumot markaziy bankning saytida olindi</CopyRight>
+      </Container>
+    </Filter.Provider>
   );
 };
 

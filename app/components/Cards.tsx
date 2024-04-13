@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
+import Filter from "@/context/filter";
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -51,7 +52,9 @@ const Tips = styled.article`
 `;
 
 const Cards = () => {
+  const { filter } = useContext(Filter);
   const [data, setData] = useState<any[]>([]);
+  const [filterData, setFilterData] = useState<any[]>([]);
   const getData = async () => {
     const req = await fetch("https://cbu.uz/uz/arkhiv-kursov-valyut/json/", {
       cache: "no-cache",
@@ -63,12 +66,22 @@ const Cards = () => {
   useEffect(() => {
     getData();
   }, []);
+
+  useEffect(() => {
+    if (filter === "all") {
+      setFilterData(data);
+    } else if (filter === "profit") {
+      setFilterData(data.filter((e) => e.Diff > 0));
+    } else {
+      setFilterData(data.filter((e) => e.Diff <= 0));
+    }
+  }, [filter, data]);
   return (
     <Container>
-      {data.length > 0 &&
-        data.map((e, i) => (
+      {filterData.length > 0 &&
+        filterData.map((e, i) => (
           <Content key={i} onClick={() => handleClick(e)}>
-            <span>{e.Ccy}</span>  
+            <span>{e.Ccy}</span>
             <Tips>
               <span>{e.Rate}</span>
               <img
