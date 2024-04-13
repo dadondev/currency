@@ -8,7 +8,7 @@ const Clock = styled.h1`
 `;
 
 const Watch = () => {
-  const [watch, setWatch] = useState("hello");
+  const [watch, setWatch] = useState("11:09");
   const intId = useRef<number | any>();
   const currentTime = () => {
     let date = new Date();
