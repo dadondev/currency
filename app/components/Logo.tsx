@@ -11,6 +11,10 @@ const LogoStyled = styled.article`
     font-size: 2.4rem;
     font-weight: 700;
     color: #343434;
+
+    @media (width>=768px) {
+      font-size: 3rem;
+    }
   }
 `;
 

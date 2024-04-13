@@ -5,6 +5,10 @@ import styled from "styled-components";
 const Clock = styled.h1`
   font-size: 2.4rem;
   color: ${(p) => p.theme.colors.black};
+
+  @media (width>=768px) {
+    font-size: 2.8rem;
+  }
 `;
 
 const Watch = () => {
@@ -22,10 +26,10 @@ const Watch = () => {
   useEffect(() => {
     intId.current = setInterval(() => {
       currentTime();
-    }, 1000);
-
+    }, 60000);
+    currentTime();
     return () => {
-      currentTime();
+      clearInterval(intId.current);
     };
   }, []);
   return <Clock>{watch}</Clock>;

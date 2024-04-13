@@ -15,10 +15,12 @@ const Container = styled.div`
 const Content = styled.div`
   max-width: 370px;
   display: flex;
+  transition: 500ms all;
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
   border-radius: 10px;
+  cursor: pointer;
   width: 100%;
   background: #ffffff;
   box-shadow: 0px 15px 60px rgba(107, 107, 107, 0.12);
@@ -27,6 +29,15 @@ const Content = styled.div`
     font-weight: 700;
     color: ${(p) => p.theme.colors.black};
     font-size: 2rem;
+  }
+  &:active {
+    transform: scale(90%);
+  }
+
+  @media (width>=1024px) {
+    &:hover {
+      transform: scale(90%);
+    }
   }
 `;
 
@@ -48,6 +59,7 @@ const Cards = () => {
     const res = await req.json();
     setData(res);
   };
+  const handleClick = (data: object) => {};
   useEffect(() => {
     getData();
   }, []);
@@ -55,8 +67,8 @@ const Cards = () => {
     <Container>
       {data.length > 0 &&
         data.map((e, i) => (
-          <Content key={i}>
-            <span>{e.Ccy}</span>
+          <Content key={i} onClick={() => handleClick(e)}>
+            <span>{e.Ccy}</span>  
             <Tips>
               <span>{e.Rate}</span>
               <img

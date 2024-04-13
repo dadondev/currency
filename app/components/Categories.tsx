@@ -5,6 +5,9 @@ import Cards from "./Cards";
 
 const Title = styled.span`
   font-size: 1.5rem;
+  @media (width>=768px) {
+    font-size: 2rem;
+  }
 `;
 
 const Container = styled.div``;
