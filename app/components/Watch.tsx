@@ -19,11 +19,10 @@ const Watch = () => {
     }`;
     setWatch(time);
   };
-  currentTime();
   useEffect(() => {
     intId.current = setInterval(() => {
       currentTime();
-    }, 30000);
+    }, 1000);
 
     return () => {
       currentTime();
