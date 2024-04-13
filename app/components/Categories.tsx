@@ -57,7 +57,6 @@ const Tip = styled.p<ITip>`
   background-color: ${(p) => (p.isactive ? "#fff" : "#efefe")};
   cursor: pointer;
   transition: 500ms all;
-  text-transform: capitalize;
   &:hover {
     ${(p) => {
       if (!p.isactive) {
@@ -112,7 +111,7 @@ const Categories = () => {
             setShow("");
           }}
         >
-          ko`tarilish
+          Ko`tarilish
         </Tip>
         <Tip
           isactive={filter === "loss" ? "active" : ""}
@@ -121,7 +120,7 @@ const Categories = () => {
             setShow("");
           }}
         >
-          tushish
+          Tushish
         </Tip>
       </FilterTips>
       <Cards />
