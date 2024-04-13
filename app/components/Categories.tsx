@@ -112,7 +112,7 @@ const Categories = () => {
             setShow("");
           }}
         >
-          ko'tarilish
+          ko`tarilish
         </Tip>
         <Tip
           isactive={filter === "loss" ? "active" : ""}
