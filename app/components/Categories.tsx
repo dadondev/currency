@@ -32,7 +32,7 @@ const Container = styled.div`
 `;
 
 const FilterTips = styled.article<ITip>`
-  width: 105px;
+  width: 115px;
   border-radius: 10px;
   transform: translateY(calc(-100% - 100px));
   overflow: hidden;
