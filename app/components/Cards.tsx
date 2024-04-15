@@ -55,6 +55,7 @@ const Cards = () => {
   const { filter } = useContext(Filter);
   const [data, setData] = useState<any[]>([]);
   const [filterData, setFilterData] = useState<any[]>([]);
+  const { setCurrency, setShow } = useContext(Filter);
   const getData = async () => {
     const req = await fetch("https://cbu.uz/uz/arkhiv-kursov-valyut/json/", {
       cache: "no-cache",
@@ -62,7 +63,10 @@ const Cards = () => {
     const res = await req.json();
     setData(res);
   };
-  const handleClick = (data: object) => {};
+  const handleClick = (data: object) => {
+    setCurrency(data);
+    setShow(true);
+  };
   useEffect(() => {
     getData();
   }, []);
